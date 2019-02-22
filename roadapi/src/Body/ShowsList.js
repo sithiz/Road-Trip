@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Card from './Card'
 
 
 
@@ -43,6 +43,7 @@ export default class ListItem extends Component {
             <div>
             <ul>
 			{this.state.listItem}
+			<Card />
 			</ul>
 			</div>
 
