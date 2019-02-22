@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
     state = {
         data: [],
         showData: false,
-        actorData: false
+        actorData: false 
     }
     //componentDidMount()
 
@@ -21,7 +21,8 @@ export default class LandingPage extends Component {
             })
             .then(result => this.setState({
                 data: result,
-                showData: true
+                showData: true,
+                actorData : false 
             }))
             .catch(error => console.log(error))
     }
@@ -33,7 +34,8 @@ export default class LandingPage extends Component {
             })
             .then(result => this.setState({
                 data: result,
-                actorData: true
+                actorData: true,
+                showData:false
             }))
             .catch(error => console.log(error))
     }
@@ -45,12 +47,12 @@ export default class LandingPage extends Component {
         let Actors;
 
         const AvailbeDataShows = this.state.showData
-        if (AvailbeDataShows) {
+        if (AvailbeDataShows &&  this.state.actorData === false ) {
             Shows = <List data={this.state.data} showCheck={this.state.showData}/>
         }
 
         const AvailbeDataActors = this.state.actorData
-        if (AvailbeDataActors) {
+        if (AvailbeDataActors && this.state.showData === false) {
             Actors = <List data={this.state.data} actorCheck={this.state.actorData} />
         }
 
